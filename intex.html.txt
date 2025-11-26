@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Echo Music</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="app-icon.png">
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,12 +27,12 @@
     header p {
       font-size: 1.2em;
       line-height: 1.6;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
     section {
       padding: 50px 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .screenshots {
@@ -58,7 +62,7 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     .app-details {
-      max-width: 400px;
+      max-width: 450px;
     }
     .app-details h2 {
       margin: 0 0 10px 0;
@@ -66,8 +70,9 @@
       color: #ffdd59;
     }
     .app-details p {
-      margin: 5px 0;
+      margin: 8px 0;
       font-size: 1.1em;
+      line-height: 1.5;
     }
     .download-btn {
       margin-top: 20px;
@@ -104,17 +109,30 @@
   <header>
     <h1>Echo Music</h1>
     <p>
-      Experience the freedom of music like never before with Echo Music, the all-in-one music streaming app designed for true music lovers. Enjoy unlimited possibilities: skip tracks as much as you want, create endless playlists, download your favorite songs, and seek through tracks without any limits. Every feature you expect from a top-tier music app is here, delivering a seamless, high-quality listening experience.
+      Echo Music – Your Ultimate Music Companion<br><br>
+
+      Experience the freedom of music like never before with Echo Music, the all-in-one music streaming app designed for true music lovers. Enjoy unlimited possibilities: skip tracks as much as you want, create endless playlists, download your favorite songs, and seek through tracks without any limits. Every feature you expect from a top-tier music app is here, delivering a seamless, high-quality listening experience.<br><br>
+
+      <strong>Key Features:</strong><br>
+      • Unlimited Streaming & Downloads – Play and save your favorite tracks without restrictions.<br>
+      • Unlimited Playlists – Organize your music your way.<br>
+      • Unlimited Skips & Seek – Jump anywhere in a song instantly.<br>
+      • High-Quality Audio – Crisp, immersive sound.<br>
+      • Duo Session – Connect with a friend anywhere. Listen in sync, control playback together, and share queues.<br>
+      • Add to Queue & Liked Songs – Build playlists on the go.<br><br>
+
+      Echo Music is more than just an app—it’s your personal music universe. Whether you're discovering new tracks, sharing moments with friends, or enjoying your favorites alone, Echo Music delivers unlimited freedom and superior sound quality.
     </p>
   </header>
 
   <section>
-    <h2 style="text-align:center; margin-bottom:30px;">Screenshots</h2>
+    <h2 style="text-align:center; margin-bottom:30px;">App Screenshots</h2>
     <div class="screenshots">
       <img src="screenshot1.jpg" alt="Screenshot 1">
       <img src="screenshot2.jpg" alt="Screenshot 2">
       <img src="screenshot3.jpg" alt="Screenshot 3">
       <img src="screenshot4.jpg" alt="Screenshot 4">
+
     </div>
   </section>
 
@@ -125,12 +143,17 @@
         <h2>Echo</h2>
         <p><strong>Version:</strong> 2.0.15</p>
         <p><strong>Android Support:</strong> 6+</p>
-        <p><strong>Key Features:</strong> Unlimited Streaming & Downloads, Unlimited Playlists, Duo Session, High-Quality Audio, Skip & Seek freely, Add to Queue & Liked Songs.</p>
-        <a href="EchoMusic.apk" class="download-btn" download>Download APK</a>
+        <p><strong>Main Features:</strong> Unlimited Streaming, Downloads, Duo Session, High-Quality Audio, Skip & Seek Control, Add to Queue, Liked Songs, and more.</p>
+
+        <!-- FIXED DOWNLOAD BUTTON -->
+        <a href="https://github.com/bookpro471-sudo/echo-website/releases/download/v2.0.15/echo.apk" 
+           class="download-btn" 
+           download>
+           Download APK
+        </a>
       </div>
     </div>
   </section>
 
 </body>
 </html>
-
