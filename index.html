@@ -45,7 +45,7 @@
       max-height: 78vh;
     }
 
-    /* Heading overlay placed over the image area but styled like the supplied design */
+    /* Heading overlay placed over the image area - now WITHOUT white background */
     .hero-heading {
       position: absolute;
       left: 50%;
@@ -56,11 +56,12 @@
       pointer-events: none; /* keep image interactions for mobile if needed */
     }
 
+    /* removed white box - the heading now sits directly on the image */
     .heading-inner {
-      background: rgba(255,255,255,0.92); /* white strip so dark text is visible on image */
+      background: transparent; /* removed white background */
       display: inline-block;
-      padding: 18px 22px;
-      border-radius: 10px;
+      padding: 0;               /* no padded white strip */
+      border-radius: 0;
     }
 
     .heading-inner h1{
@@ -68,9 +69,11 @@
       font-family: "Poppins", "Inter", sans-serif;
       font-weight: 800;
       font-size: clamp(28px, 6vw, 48px);
-      color: var(--accent-dark); /* Color(0xFF121212) */
+      color: #ffffff; /* white text on image */
       line-height: 1.03;
       letter-spacing: -0.02em;
+      /* add shadow for readability over the image */
+      text-shadow: 0 6px 20px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.4);
     }
 
     /* DESCRIPTION block (white background, black text, Spotify-like font proportions) */
@@ -179,7 +182,7 @@
       .app-details { text-align:center; }
       .hero-heading { left: 50%; bottom: 18px; transform: translateX(-50%); }
       .heading-inner { padding: 14px 16px; }
-      .heading-inner h1 { font-size: 26px; }
+      .heading-inner h1 { font-size: 26px; text-shadow: 0 4px 14px rgba(0,0,0,0.6); }
     }
   </style>
 </head>
@@ -188,7 +191,7 @@
   <!-- HERO: large top image (use your uploaded screenshot) -->
   <div class="hero" role="img" aria-label="People singing - Echo Music">
     <img src="screenshot5.jpg" alt="Share music together" />
-    <!-- Heading overlay (white strip with dark text per your request) -->
+    <!-- Heading overlay directly on the image (no white background) -->
     <div class="hero-heading" aria-hidden="true">
       <div class="heading-inner">
         <h1>Share your taste and enjoy</h1>
