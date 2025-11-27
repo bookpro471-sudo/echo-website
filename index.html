@@ -13,11 +13,12 @@
 
   <style>
     :root{
-      --accent-dark: #121212; /* user requested color */
+      --accent-dark: #121212; /* previously requested dark circle color */
       --page-bg: #ffffff;
       --text-dark: #121212;
       --muted: #6b6b6b;
       --action: #6c5ce7;
+      --icon-accent: #6600CC; /* Color(0xFF6600CC) requested for icons */
     }
 
     html,body{
@@ -98,7 +99,7 @@
       height: 72px;
       min-width: 72px;
       border-radius: 999px;
-      background: var(--accent-dark); /* Circle color per request */
+      background: var(--accent-dark); /* Circle color per earlier request */
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -106,11 +107,12 @@
       flex-shrink: 0;
     }
 
+    /* set the icon color to the requested purple */
     .feature-icon svg {
       width: 34px;
       height: 34px;
       display:block;
-      fill: #ffffff; /* icon inside circle is white for contrast */
+      fill: var(--icon-accent) !important;
     }
 
     .feature-text h3 {
