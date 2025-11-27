@@ -74,7 +74,61 @@
       text-shadow: 0 6px 20px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.4);
     }
 
-    /* Paragraph container(s) below hero - white background with black text */
+    /* FEATURES: icons + text (placed between hero and paragraphs) */
+    .features-wrap {
+      max-width: 1100px;
+      margin: 22px auto 12px;
+      padding: 0 20px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 32px;
+      align-items: start;
+    }
+
+    .feature {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 72px;
+      height: 72px;
+      min-width: 72px;
+      border-radius: 999px;
+      background: var(--accent-dark); /* Circle color per request */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+
+    .feature-icon svg {
+      width: 34px;
+      height: 34px;
+      display:block;
+      fill: #ffffff; /* icon inside circle is white for contrast */
+    }
+
+    .feature-text h3 {
+      margin: 0 0 6px 0;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text-dark);
+    }
+    .feature-text p {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: #333333;
+      line-height: 1.5;
+      font-size: 14.5px;
+    }
+
+    /* Paragraph container(s) below features - white background with black text */
     .long-desc {
       max-width: 1100px;
       margin: 26px auto;
@@ -172,15 +226,21 @@
     .download-btn:hover { background: #7f6df0; }
 
     /* small screens */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+      .feature {
+        align-items: center;
+      }
+      .feature-icon { width: 60px; height: 60px; min-width: 60px; }
+      .feature-icon svg { width: 28px; height: 28px; }
+    }
+    @media (max-width: 480px) {
       .hero img { max-height: 56vh; }
-      .screenshots img { height: 260px; }
-      .app-info { gap: 18px; padding: 0 10px; text-align:center; }
-      .app-details { text-align:center; }
-      .hero-heading { left: 50%; bottom: 18px; transform: translateX(-50%); }
-      .heading-inner { padding: 14px 16px; }
+      .screenshots img { height: 220px; }
       .heading-inner h1 { font-size: 26px; text-shadow: 0 4px 14px rgba(0,0,0,0.6); }
-      .long-desc { padding: 20px; font-size: 15px; }
+      .long-desc { padding: 18px; font-size: 15px; }
     }
   </style>
 </head>
@@ -197,7 +257,64 @@
     </div>
   </div>
 
-  <!-- Long paragraphs (black text) placed below the hero image -->
+  <!-- FEATURES: Icons + text placed between the top image and the paragraphs -->
+  <div class="features-wrap" aria-label="Why Echo features">
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <!-- play icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h3>Enjoy the music you love</h3>
+          <p>Explore your favorite tracks, dive into new releases, and uncover fresh music and podcasts effortlessly.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <!-- playlist / list icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 10h12v2H3zm0-4h12v2H3zm0 8h8v2H3zM19 8h2v10h-2z"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h3>Create playlists without the hassle</h3>
+          <p>Build your own playlists with ease, or enjoy expertly curated collections made by music enthusiasts.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <!-- heart icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 21s-7-4.35-9.5-7.03C-1.1 9.6 3.6 3.5 9.6 6.1 12 7.3 12 7.3 12 7.3s0 0 2.4-1.2c6-2.6 10.7 3.5 6.1 7.87C19 16.65 12 21 12 21z"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h3>Personalize your listening experience</h3>
+          <p>Share your preferences with us, and we’ll tailor music recommendations perfectly suited to your taste.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <!-- bolt icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M13 2L3 14h7l-1 8 10-12h-7z"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h3>Reduce data usage on the go</h3>
+          <p>Lower your mobile data consumption by enabling the Data Saver option in your app settings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Long paragraphs (black text) placed below the features -->
   <div class="long-desc" role="region" aria-label="About Echo Music">
     <p>
       Echo Music is a next-generation music streaming experience designed for listeners who want complete freedom, premium quality, and seamless control—all without paying a single rupee. With a beautifully crafted interface and lightning-fast performance, Echo Music brings you a world of endless music where everything is truly unlimited. Whether you’re exploring new tracks, organizing your favorite songs, or sharing moments with someone special, Echo Music delivers a smooth, powerful, and deeply personalized listening experience that feels truly premium.
