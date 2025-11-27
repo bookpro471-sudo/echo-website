@@ -8,7 +8,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="app-icon.png">
 
-  <!-- Fonts: Poppins (heading) + Inter (body) - close to Spotify look -->
+  <!-- Fonts: Poppins (heading) + Inter (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -45,7 +45,7 @@
       max-height: 78vh;
     }
 
-    /* Heading overlay placed over the image area - now WITHOUT white background */
+    /* Heading overlay placed over the image area - without white background */
     .hero-heading {
       position: absolute;
       left: 50%;
@@ -53,14 +53,13 @@
       bottom: 36px;
       width: min(1100px, calc(100% - 40px));
       text-align: left;
-      pointer-events: none; /* keep image interactions for mobile if needed */
+      pointer-events: none;
     }
 
-    /* removed white box - the heading now sits directly on the image */
     .heading-inner {
-      background: transparent; /* removed white background */
+      background: transparent;
       display: inline-block;
-      padding: 0;               /* no padded white strip */
+      padding: 0;
       border-radius: 0;
     }
 
@@ -72,28 +71,26 @@
       color: #ffffff; /* white text on image */
       line-height: 1.03;
       letter-spacing: -0.02em;
-      /* add shadow for readability over the image */
       text-shadow: 0 6px 20px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.4);
     }
 
-    /* DESCRIPTION block (white background, black text, Spotify-like font proportions) */
-    .desc {
-      background: #ffffff;
-      color: var(--text-dark);
+    /* Paragraph container(s) below hero - white background with black text */
+    .long-desc {
       max-width: 1100px;
       margin: 26px auto;
-      padding: 28px 20px;
+      padding: 28px 22px;
       border-radius: 10px;
+      background: #ffffff;
       box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      color: #111111; /* ensure black text */
       font-family: "Inter", Arial, sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
     }
-    .desc p {
-      margin:0;
-      font-size: 18px;
-      line-height: 1.6;
-      color: #111111;
+    .long-desc p {
+      margin: 0 0 18px 0;
+      color: #111111; /* enforce black */
       font-weight: 400;
-      max-width: 920px;
     }
 
     section {
@@ -146,7 +143,7 @@
     .app-details h2 {
       margin: 0 0 8px 0;
       font-size: 22px;
-      color: var(--accent-dark); /* app name color set to #121212 */
+      color: var(--accent-dark);
       font-family: "Poppins", sans-serif;
       font-weight: 700;
     }
@@ -183,15 +180,16 @@
       .hero-heading { left: 50%; bottom: 18px; transform: translateX(-50%); }
       .heading-inner { padding: 14px 16px; }
       .heading-inner h1 { font-size: 26px; text-shadow: 0 4px 14px rgba(0,0,0,0.6); }
+      .long-desc { padding: 20px; font-size: 15px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO: large top image (use your uploaded screenshot) -->
+  <!-- HERO: large top image (use your uploaded screenshot5.jpg) -->
   <div class="hero" role="img" aria-label="People singing - Echo Music">
     <img src="screenshot5.jpg" alt="Share music together" />
-    <!-- Heading overlay directly on the image (no white background) -->
+    <!-- Heading overlay directly on the image -->
     <div class="hero-heading" aria-hidden="true">
       <div class="heading-inner">
         <h1>Share your taste and enjoy</h1>
@@ -199,14 +197,30 @@
     </div>
   </div>
 
-  <!-- Short description in white box with black text (Spotify-like tone) -->
-  <div class="desc" role="region" aria-label="App summary">
+  <!-- Long paragraphs (black text) placed below the hero image -->
+  <div class="long-desc" role="region" aria-label="About Echo Music">
     <p>
-      Discover and share music with friends. Create playlists, listen together in Duo Session, and download songs for offline listening — all in one beautiful app.
+      Echo Music is a next-generation music streaming experience designed for listeners who want complete freedom, premium quality, and seamless control—all without paying a single rupee. With a beautifully crafted interface and lightning-fast performance, Echo Music brings you a world of endless music where everything is truly unlimited. Whether you’re exploring new tracks, organizing your favorite songs, or sharing moments with someone special, Echo Music delivers a smooth, powerful, and deeply personalized listening experience that feels truly premium.
+    </p>
+
+    <p>
+      One of Echo Music’s standout features is Duo Sessions—a real-time synced listening mode that lets two users enjoy the same music together from anywhere in the world. You can both control playback, add songs to the queue, skip, or seek instantly, making it perfect for couples, friends, or anyone who wants to share music even when miles apart. Echo Music also offers unlimited skips, unlimited seek, unlimited playlists, and unlimited downloads, allowing you to listen without restrictions. With offline listening, smart recommendations, autoplay, related songs, and a dynamic queue system, your music never stops—even when the internet does.
+    </p>
+
+    <p>
+      Echo Music comes packed with all the features you expect from a high-end streaming platform: shuffle, smart shuffle, repeat modes, a fully customizable queue, a powerful sleep timer, and an intelligent home screen filled with personalized suggestions. Combined with a top-notch premium UI, smooth animations, and an efficient design that works flawlessly on any device, Echo Music gives you the freedom to dive deep into your music—your way. Completely free, beautifully designed, and crafted for unlimited listening, Echo Music is your ultimate music companion.
+    </p>
+
+    <p>
+      Beyond its powerful features, Echo Music is built with a forward-thinking approach that adapts to your listening habits in real time. The app intelligently learns your preferences—your favorite genres, your mood-based patterns, your frequently played artists—and delivers smarter recommendations every day. Its advanced music engine ensures instant playback, zero buffering on stable connections, and flawless transitions between tracks. Whether you’re discovering rising artists, revisiting classics, or exploring curated mixes, Echo Music creates a personalized soundscape that evolves with you.
+    </p>
+
+    <p>
+      At its core, Echo Music is engineered for the future of streaming. With a design focused on speed, simplicity, and seamless connectivity, it integrates cutting-edge features that make your listening experience more immersive than ever. Every aspect of the app—from the intuitive controls to the responsive animations—has been crafted to feel modern, premium, and effortless. Echo Music isn’t just another music app; it’s a complete ecosystem built for music lovers who expect more from their streaming experience. With ongoing updates, new features, and continuous improvements, Echo Music is designed to grow into one of the most advanced music platforms of the next generation.
     </p>
   </div>
 
-  <!-- App screenshots section -->
+  <!-- App screenshots section (appears AFTER the long paragraphs) -->
   <section>
     <h2 class="section-title">App screenshots</h2>
     <div class="screenshots" aria-hidden="false">
@@ -217,7 +231,7 @@
     </div>
   </section>
 
-  <!-- App info and download (keeps the same order as your original) -->
+  <!-- App info and download -->
   <section>
     <div class="app-info">
       <img src="app-icon.png" alt="Echo app icon">
