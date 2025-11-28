@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main homepage -->
   <url>
     <loc>https://echomusicandroid.com/</loc>
     <lastmod>2025-11-28</lastmod>
@@ -7,45 +9,17 @@
     <priority>1.00</priority>
   </url>
 
-  <url>
-    <loc>https://echomusicandroid.com/screenshots</loc>
-    <lastmod>2025-11-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
+  <!-- Screenshots (actual files) -->
+  <url><loc>https://echomusicandroid.com/screenshot1.jpg</loc></url>
+  <url><loc>https://echomusicandroid.com/screenshot2.jpg</loc></url>
+  <url><loc>https://echomusicandroid.com/screenshot3.jpg</loc></url>
+  <url><loc>https://echomusicandroid.com/screenshot4.jpg</loc></url>
+  <url><loc>https://echomusicandroid.com/screenshot5.jpg</loc></url>
+  <url><loc>https://echomusicandroid.com/screenshot6.jpg</loc></url>
 
-  <url>
-    <loc>https://echomusicandroid.com/download</loc>
-    <lastmod>2025-11-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
+  <!-- Image & APK files -->
+  <url><loc>https://echomusicandroid.com/app-icon.png</loc></url>
+  <url><loc>https://echomusicandroid.com/favicon.png</loc></url>
+  <url><loc>https://echomusicandroid.com/echo.apk</loc></url>
 
-  <url>
-    <loc>https://echomusicandroid.com/about</loc>
-    <lastmod>2025-11-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <url>
-    <loc>https://echomusicandroid.com/privacy</loc>
-    <lastmod>2025-11-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
-
-  <url>
-    <loc>https://echomusicandroid.com/contact</loc>
-    <lastmod>2025-11-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
-
-  <url>
-    <loc>https://echomusicandroid.com/terms</loc>
-    <lastmod>2025-11-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
 </urlset>
