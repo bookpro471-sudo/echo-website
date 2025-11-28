@@ -3,9 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ============================================= -->
+  <!-- SEO META TAGS -->
+  <!-- ============================================= -->
+
+  <meta name="title" content="Echo Music - Free Premium Music Streaming App">
+  <meta name="description" content="Echo Music is a free, premium-quality music streaming app with unlimited skips, offline downloads, duo sessions, personalized playlists, autoplay, smart shuffle, and a top-notch premium UI. Enjoy unlimited music without restrictions.">
+  <meta name="keywords" content="echo music, music app, music streaming, free music app, offline music, android music app, premium music app, duo session, unlimited skips, download music app, best music player, free music streaming app">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="author" content="Echo Music">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Echo Music - Premium Free Music Streaming App">
+  <meta property="og:description" content="Experience unlimited music streaming, offline downloads, Duo Sessions, premium UI and smooth playback. Echo Music — everything free, unlimited, and beautifully designed.">
+  <meta property="og:image" content="https://echomusicandroid.com/app-icon.png">
+  <meta property="og:url" content="https://echomusicandroid.com">
+  <meta property="og:type" content="website">
+
+  <!-- ============================================= -->
+
   <title>Echo Music</title>
 
-  <!-- Favicon for browser tab -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="app-icon.png">
 
   <!-- Fonts -->
@@ -18,7 +39,7 @@
       --text-dark: #121212;
       --muted: #6b6b6b;
       --action: #6c5ce7;
-      --icon-accent: #6600CC; /* requested purple */
+      --icon-accent: #6600CC;
       --footer-bg: #000000;
       --footer-text: #ffffff;
     }
@@ -48,7 +69,6 @@
       max-height: 78vh;
     }
 
-    /* Heading overlay over the image */
     .hero-heading {
       position: absolute;
       left: 50%;
@@ -71,7 +91,7 @@
       text-shadow: 0 6px 20px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.4);
     }
 
-    /* FEATURES: icons + text (between hero and paragraphs) */
+    /* FEATURES */
     .features-wrap { max-width: 1100px; margin: 22px auto 12px; padding: 0 20px; }
     .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 32px; align-items: start; }
     .feature { display: flex; gap: 18px; align-items: flex-start; }
@@ -84,7 +104,7 @@
     .feature-text h3 { margin: 0 0 6px 0; font-family: "Poppins", sans-serif; font-weight: 700; font-size: 18px; color: var(--text-dark); }
     .feature-text p { margin: 0; font-family: "Inter", sans-serif; color: #333333; line-height: 1.5; font-size: 14.5px; }
 
-    /* Paragraphs below features */
+    /* LONG TEXT BLOCKS */
     .long-desc { max-width: 1100px; margin: 26px auto; padding: 28px 22px; border-radius: 10px; background: #ffffff; box-shadow: 0 6px 22px rgba(0,0,0,0.06); color: #111111; font-family: "Inter", Arial, sans-serif; line-height: 1.7; font-size: 16px; }
     .long-desc p { margin: 0 0 18px 0; color: #111111; font-weight: 400; }
 
@@ -94,7 +114,7 @@
     .screenshots { display: flex; gap: 18px; overflow-x: auto; padding-bottom: 10px; -webkit-overflow-scrolling: touch; }
     .screenshots img { height: 420px; border-radius: 14px; flex-shrink: 0; box-shadow: 0 8px 30px rgba(0,0,0,0.12); object-fit: cover; }
 
-    /* App info & download */
+    /* Download Section */
     .app-info { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 28px; margin-top: 32px; text-align: left; }
     .app-info img { width: 140px; border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
     .app-details { max-width: 520px; }
@@ -117,41 +137,34 @@
     .footer-link { font-size: 13px; color: var(--footer-text); display:inline-flex; gap:8px; align-items:center; text-decoration:none; }
     .footer-icon { width:18px; height:18px; fill: var(--footer-text); display:inline-block; }
 
-    /* smaller screens */
     @media (max-width: 900px) {
       .features { grid-template-columns: 1fr; }
-      .feature { align-items: center; }
-      .feature-icon { width: 60px; height: 60px; min-width: 60px; }
-      .feature-icon svg { width: 28px; height: 28px; }
-      .footer-inner { gap:8px; justify-content:center; text-align:center; }
     }
     @media (max-width: 480px) {
       .hero img { max-height: 56vh; }
       .screenshots img { height: 220px; }
-      .heading-inner h1 { font-size: 26px; text-shadow: 0 4px 14px rgba(0,0,0,0.6); }
-      .long-desc { padding: 18px; font-size: 15px; }
     }
   </style>
 </head>
 <body>
 
   <!-- HERO -->
-  <div class="hero" role="img" aria-label="People enjoying music">
+  <div class="hero">
     <img src="screenshot5.jpg" alt="Share music together" />
-    <div class="hero-heading" aria-hidden="true">
+    <div class="hero-heading">
       <div class="heading-inner">
         <h1>Share your taste and enjoy</h1>
       </div>
     </div>
   </div>
 
-  <!-- FEATURES -->
-  <div class="features-wrap" aria-label="Why Echo features">
+  <!-- FEATURE SECTION -->
+  <div class="features-wrap">
     <div class="features">
+
       <div class="feature">
-        <div class="feature-icon" aria-hidden="true">
-          <!-- play -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <div class="feature-text">
           <h3>Enjoy the music you love</h3>
@@ -160,9 +173,8 @@
       </div>
 
       <div class="feature">
-        <div class="feature-icon" aria-hidden="true">
-          <!-- playlist -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 10h12v2H3zm0-4h12v2H3zm0 8h8v2H3zM19 8h2v10h-2z"/></svg>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 10h12v2H3zm0-4h12v2H3zm0 8h8v2H3zM19 8h2v10h-2z"/></svg>
         </div>
         <div class="feature-text">
           <h3>Create playlists without the hassle</h3>
@@ -171,9 +183,8 @@
       </div>
 
       <div class="feature">
-        <div class="feature-icon" aria-hidden="true">
-          <!-- heart -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-7.03C-1.1 9.6 3.6 3.5 9.6 6.1 12 7.3 12 7.3 12 7.3s0 0 2.4-1.2c6-2.6 10.7 3.5 6.1 7.87C19 16.65 12 21 12 21z"/></svg>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-7.03C-1.1 9.6 3.6 3.5 9.6 6.1 12 7.3 12 7.3 12 7.3s0 0 2.4-1.2c6-2.6 10.7 3.5 6.1 7.87C19 16.65 12 21 12 21z"/></svg>
         </div>
         <div class="feature-text">
           <h3>Personalize your listening experience</h3>
@@ -182,20 +193,20 @@
       </div>
 
       <div class="feature">
-        <div class="feature-icon" aria-hidden="true">
-          <!-- bolt -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
         </div>
         <div class="feature-text">
           <h3>Reduce data usage on the go</h3>
           <p>Lower your mobile data consumption by enabling the Data Saver option in your app settings.</p>
         </div>
       </div>
+
     </div>
   </div>
 
-  <!-- Long paragraphs -->
-  <div class="long-desc" role="region" aria-label="About Echo Music">
+  <!-- LONG PARAGRAPHS -->
+  <div class="long-desc">
     <p>
       Echo Music is a next-generation music streaming experience designed for listeners who want complete freedom, premium quality, and seamless control—all without paying a single rupee. With a beautifully crafted interface and lightning-fast performance, Echo Music brings you a world of endless music where everything is truly unlimited. Whether you’re exploring new tracks, organizing your favorite songs, or sharing moments with someone special, Echo Music delivers a smooth, powerful, and deeply personalized listening experience that feels truly premium.
     </p>
@@ -217,10 +228,10 @@
     </p>
   </div>
 
-  <!-- App screenshots (added screenshot6 as requested) -->
+  <!-- Screenshots -->
   <section>
     <h2 class="section-title">App screenshots</h2>
-    <div class="screenshots" aria-hidden="false">
+    <div class="screenshots">
       <img src="screenshot1.jpg" alt="Echo screenshot 1">
       <img src="screenshot2.jpg" alt="Echo screenshot 2">
       <img src="screenshot3.jpg" alt="Echo screenshot 3">
@@ -229,7 +240,7 @@
     </div>
   </section>
 
-  <!-- App info and download -->
+  <!-- Download Section -->
   <section>
     <div class="app-info">
       <img src="app-icon.png" alt="Echo app icon">
@@ -239,7 +250,6 @@
         <p><strong>Android Support:</strong> 6+</p>
         <p>Unlimited streaming, playlists, offline downloads and Duo Session to listen with friends.</p>
 
-        <!-- DOWNLOAD -->
         <a href="https://github.com/bookpro471-sudo/echo-website/releases/download/v2.0.15/echo.apk"
            class="download-btn" download>
            Download APK
@@ -248,8 +258,8 @@
     </div>
   </section>
 
-  <!-- Footer (black background, small white text) -->
-  <footer class="site-footer" role="contentinfo">
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-left">
         <img src="favicon.png" alt="Echo logo small">
@@ -258,17 +268,15 @@
 
       <div class="footer-right">
         <a class="footer-link" href="mailto:Abhithvp@gmail.com">
-          <!-- mail icon -->
-          <svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.5L12 13 2 7.5V6zM2 9.2V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9.2l-9.1 5.6a1 1 0 0 1-1.1 0L2 9.2z" fill="currentColor"/>
+          <svg class="footer-icon" viewBox="0 0 24 24">
+            <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.5L12 13 2 7.5V6zM2 9.2V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9.2l-9.1 5.6a1 1 0 0 1-1.1 0L2 9.2z"/>
           </svg>
           <span class="footer-text">contact developer : Abhithvp@gmail.com</span>
         </a>
 
         <a class="footer-link" href="https://instagram.com/__Vp__.0" target="_blank" rel="noopener">
-          <!-- instagram icon -->
-          <svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm6 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="currentColor"/>
+          <svg class="footer-icon" viewBox="0 0 24 24">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm6 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
           </svg>
           <span class="footer-text">instagram : __Vp__.0</span>
         </a>
