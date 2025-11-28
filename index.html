@@ -5,35 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Echo Music</title>
 
-  <!-- Favicon -->
+  <!-- Favicon for browser tab -->
   <link rel="icon" type="image/png" href="app-icon.png">
 
-  <!-- Fonts: Poppins (heading) + Inter (body) -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --accent-dark: #121212; /* previously requested dark circle color */
+      --accent-dark: #121212;
       --page-bg: #ffffff;
       --text-dark: #121212;
       --muted: #6b6b6b;
       --action: #6c5ce7;
-      --icon-accent: #6600CC; /* Color(0xFF6600CC) requested for icons */
+      --icon-accent: #6600CC; /* requested purple */
+      --footer-bg: #000000;
+      --footer-text: #ffffff;
     }
 
     html,body{
       height:100%;
       margin:0;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: #ffffff;
+      background: var(--page-bg);
       color: var(--text-dark);
+    }
+
+    /* Top bar with logo (fixed visual area) */
+    .topbar {
+      position: absolute;
+      top: 12px;
+      left: 20px;
+      z-index: 40;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .topbar img.logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      display:block;
+      border-radius:8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.03);
     }
 
     /* HERO */
     .hero {
       position: relative;
       width: 100%;
-      max-height: 720px;
+      max-height: 78vh;
       overflow: hidden;
       display:block;
       background: var(--page-bg);
@@ -46,7 +68,7 @@
       max-height: 78vh;
     }
 
-    /* Heading overlay placed over the image area - without white background */
+    /* Heading overlay over the image */
     .hero-heading {
       position: absolute;
       left: 50%;
@@ -55,188 +77,73 @@
       width: min(1100px, calc(100% - 40px));
       text-align: left;
       pointer-events: none;
+      z-index: 30;
     }
-
-    .heading-inner {
-      background: transparent;
-      display: inline-block;
-      padding: 0;
-      border-radius: 0;
-    }
-
+    .heading-inner { background: transparent; display:inline-block; padding:0; border-radius:0; }
     .heading-inner h1{
       margin:0;
       font-family: "Poppins", "Inter", sans-serif;
       font-weight: 800;
       font-size: clamp(28px, 6vw, 48px);
-      color: #ffffff; /* white text on image */
+      color: #ffffff;
       line-height: 1.03;
       letter-spacing: -0.02em;
       text-shadow: 0 6px 20px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.4);
     }
 
-    /* FEATURES: icons + text (placed between hero and paragraphs) */
-    .features-wrap {
-      max-width: 1100px;
-      margin: 22px auto 12px;
-      padding: 0 20px;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px 32px;
-      align-items: start;
-    }
-
-    .feature {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
-
+    /* FEATURES: icons + text (between hero and paragraphs) */
+    .features-wrap { max-width: 1100px; margin: 22px auto 12px; padding: 0 20px; }
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 32px; align-items: start; }
+    .feature { display: flex; gap: 18px; align-items: flex-start; }
     .feature-icon {
-      width: 72px;
-      height: 72px;
-      min-width: 72px;
-      border-radius: 999px;
-      background: var(--accent-dark); /* Circle color per earlier request */
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      flex-shrink: 0;
+      width: 72px; height: 72px; min-width: 72px; border-radius: 999px;
+      background: var(--accent-dark); display: inline-flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08); flex-shrink: 0;
     }
+    .feature-icon svg { width: 34px; height: 34px; display:block; fill: var(--icon-accent) !important; }
+    .feature-text h3 { margin: 0 0 6px 0; font-family: "Poppins", sans-serif; font-weight: 700; font-size: 18px; color: var(--text-dark); }
+    .feature-text p { margin: 0; font-family: "Inter", sans-serif; color: #333333; line-height: 1.5; font-size: 14.5px; }
 
-    /* set the icon color to the requested purple */
-    .feature-icon svg {
-      width: 34px;
-      height: 34px;
-      display:block;
-      fill: var(--icon-accent) !important;
-    }
+    /* Paragraphs below features */
+    .long-desc { max-width: 1100px; margin: 26px auto; padding: 28px 22px; border-radius: 10px; background: #ffffff; box-shadow: 0 6px 22px rgba(0,0,0,0.06); color: #111111; font-family: "Inter", Arial, sans-serif; line-height: 1.7; font-size: 16px; }
+    .long-desc p { margin: 0 0 18px 0; color: #111111; font-weight: 400; }
 
-    .feature-text h3 {
-      margin: 0 0 6px 0;
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--text-dark);
-    }
-    .feature-text p {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      color: #333333;
-      line-height: 1.5;
-      font-size: 14.5px;
-    }
+    /* Screenshots */
+    section { padding: 36px 20px; max-width: 1100px; margin: 0 auto; }
+    h2.section-title{ text-align:center; margin: 0 0 22px 0; font-family: "Poppins", sans-serif; font-weight: 700; color: var(--accent-dark); font-size: 26px; }
+    .screenshots { display: flex; gap: 18px; overflow-x: auto; padding-bottom: 10px; -webkit-overflow-scrolling: touch; }
+    .screenshots img { height: 420px; border-radius: 14px; flex-shrink: 0; box-shadow: 0 8px 30px rgba(0,0,0,0.12); object-fit: cover; }
 
-    /* Paragraph container(s) below features - white background with black text */
-    .long-desc {
-      max-width: 1100px;
-      margin: 26px auto;
-      padding: 28px 22px;
-      border-radius: 10px;
-      background: #ffffff;
-      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
-      color: #111111; /* ensure black text */
-      font-family: "Inter", Arial, sans-serif;
-      line-height: 1.7;
-      font-size: 16px;
-    }
-    .long-desc p {
-      margin: 0 0 18px 0;
-      color: #111111; /* enforce black */
-      font-weight: 400;
-    }
-
-    section {
-      padding: 36px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    h2.section-title{
-      text-align:center;
-      margin: 0 0 22px 0;
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      color: var(--accent-dark);
-      font-size: 26px;
-    }
-
-    .screenshots {
-      display: flex;
-      gap: 18px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      -webkit-overflow-scrolling: touch;
-    }
-    .screenshots img {
-      height: 420px;
-      border-radius: 14px;
-      flex-shrink: 0;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      object-fit: cover;
-    }
-
-    .app-info {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-      margin-top: 32px;
-      text-align: left;
-    }
-    .app-info img {
-      width: 140px;
-      border-radius: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-    .app-details {
-      max-width: 520px;
-    }
-    .app-details h2 {
-      margin: 0 0 8px 0;
-      font-size: 22px;
-      color: var(--accent-dark);
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-    }
-    .app-details p {
-      margin: 8px 0;
-      font-size: 15px;
-      color: #333333;
-      line-height: 1.5;
-      font-family: "Inter", sans-serif;
-    }
-
-    .download-btn {
-      margin-top: 18px;
-      display: inline-block;
-      background: var(--action);
-      color: white;
-      padding: 12px 26px;
-      font-size: 16px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: background 0.18s ease;
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      box-shadow: 0 8px 22px rgba(108,92,231,0.16);
-    }
+    /* App info & download */
+    .app-info { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 28px; margin-top: 32px; text-align: left; }
+    .app-info img { width: 140px; border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+    .app-details { max-width: 520px; }
+    .app-details h2 { margin: 0 0 8px 0; font-size: 22px; color: var(--accent-dark); font-family: "Poppins", sans-serif; font-weight: 700; }
+    .app-details p { margin: 8px 0; font-size: 15px; color: #333333; line-height: 1.5; font-family: "Inter", sans-serif; }
+    .download-btn { margin-top: 18px; display: inline-block; background: var(--action); color: white; padding: 12px 26px; font-size: 16px; border-radius: 50px; text-decoration: none; transition: background 0.18s ease; font-family: "Poppins", sans-serif; font-weight: 600; box-shadow: 0 8px 22px rgba(108,92,231,0.16); }
     .download-btn:hover { background: #7f6df0; }
 
-    /* small screens */
+    /* Footer */
+    footer.site-footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 18px 20px;
+      margin-top: 36px;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    .footer-left, .footer-right { display:flex; gap:12px; align-items:center; }
+    .footer-left img { width:36px; height:36px; border-radius:6px; }
+    .footer-text { font-size: 13px; color: var(--footer-text); }
+    .footer-link { font-size: 13px; color: var(--footer-text); display:inline-flex; gap:8px; align-items:center; text-decoration:none; }
+    .footer-icon { width:18px; height:18px; fill: var(--footer-text); display:inline-block; }
+
+    /* smaller screens */
     @media (max-width: 900px) {
-      .features {
-        grid-template-columns: 1fr;
-      }
-      .feature {
-        align-items: center;
-      }
+      .features { grid-template-columns: 1fr; }
+      .feature { align-items: center; }
       .feature-icon { width: 60px; height: 60px; min-width: 60px; }
       .feature-icon svg { width: 28px; height: 28px; }
+      .footer-inner { gap:8px; justify-content:center; text-align:center; }
     }
     @media (max-width: 480px) {
       .hero img { max-height: 56vh; }
@@ -248,10 +155,14 @@
 </head>
 <body>
 
-  <!-- HERO: large top image (use your uploaded screenshot5.jpg) -->
-  <div class="hero" role="img" aria-label="People singing - Echo Music">
+  <!-- top-left logo (use image file named favicon.png provided) -->
+  <div class="topbar" aria-hidden="true">
+    <img class="logo" src="favicon.png" alt="Echo logo">
+  </div>
+
+  <!-- HERO -->
+  <div class="hero" role="img" aria-label="People enjoying music">
     <img src="screenshot5.jpg" alt="Share music together" />
-    <!-- Heading overlay directly on the image -->
     <div class="hero-heading" aria-hidden="true">
       <div class="heading-inner">
         <h1>Share your taste and enjoy</h1>
@@ -259,15 +170,13 @@
     </div>
   </div>
 
-  <!-- FEATURES: Icons + text placed between the top image and the paragraphs -->
+  <!-- FEATURES -->
   <div class="features-wrap" aria-label="Why Echo features">
     <div class="features">
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">
-          <!-- play icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
+          <!-- play -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <div class="feature-text">
           <h3>Enjoy the music you love</h3>
@@ -277,10 +186,8 @@
 
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">
-          <!-- playlist / list icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M3 10h12v2H3zm0-4h12v2H3zm0 8h8v2H3zM19 8h2v10h-2z"/>
-          </svg>
+          <!-- playlist -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 10h12v2H3zm0-4h12v2H3zm0 8h8v2H3zM19 8h2v10h-2z"/></svg>
         </div>
         <div class="feature-text">
           <h3>Create playlists without the hassle</h3>
@@ -290,10 +197,8 @@
 
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">
-          <!-- heart icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 21s-7-4.35-9.5-7.03C-1.1 9.6 3.6 3.5 9.6 6.1 12 7.3 12 7.3 12 7.3s0 0 2.4-1.2c6-2.6 10.7 3.5 6.1 7.87C19 16.65 12 21 12 21z"/>
-          </svg>
+          <!-- heart -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-7.03C-1.1 9.6 3.6 3.5 9.6 6.1 12 7.3 12 7.3 12 7.3s0 0 2.4-1.2c6-2.6 10.7 3.5 6.1 7.87C19 16.65 12 21 12 21z"/></svg>
         </div>
         <div class="feature-text">
           <h3>Personalize your listening experience</h3>
@@ -303,10 +208,8 @@
 
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">
-          <!-- bolt icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M13 2L3 14h7l-1 8 10-12h-7z"/>
-          </svg>
+          <!-- bolt -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
         </div>
         <div class="feature-text">
           <h3>Reduce data usage on the go</h3>
@@ -316,7 +219,7 @@
     </div>
   </div>
 
-  <!-- Long paragraphs (black text) placed below the features -->
+  <!-- Long paragraphs -->
   <div class="long-desc" role="region" aria-label="About Echo Music">
     <p>
       Echo Music is a next-generation music streaming experience designed for listeners who want complete freedom, premium quality, and seamless control—all without paying a single rupee. With a beautifully crafted interface and lightning-fast performance, Echo Music brings you a world of endless music where everything is truly unlimited. Whether you’re exploring new tracks, organizing your favorite songs, or sharing moments with someone special, Echo Music delivers a smooth, powerful, and deeply personalized listening experience that feels truly premium.
@@ -339,7 +242,7 @@
     </p>
   </div>
 
-  <!-- App screenshots section (appears AFTER the long paragraphs) -->
+  <!-- App screenshots (added screenshot6 as requested) -->
   <section>
     <h2 class="section-title">App screenshots</h2>
     <div class="screenshots" aria-hidden="false">
@@ -347,6 +250,7 @@
       <img src="screenshot2.jpg" alt="Echo screenshot 2">
       <img src="screenshot3.jpg" alt="Echo screenshot 3">
       <img src="screenshot4.jpg" alt="Echo screenshot 4">
+      <img src="screenshot6.jpg" alt="Echo screenshot 6">
     </div>
   </section>
 
@@ -368,6 +272,34 @@
       </div>
     </div>
   </section>
+
+  <!-- Footer (black background, small white text) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="favicon.png" alt="Echo logo small">
+        <div class="footer-text">© <strong>Echo Music</strong></div>
+      </div>
+
+      <div class="footer-right">
+        <a class="footer-link" href="mailto:Abhithvp@gmail.com">
+          <!-- mail icon -->
+          <svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.5L12 13 2 7.5V6zM2 9.2V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9.2l-9.1 5.6a1 1 0 0 1-1.1 0L2 9.2z" fill="currentColor"/>
+          </svg>
+          <span class="footer-text">contact developer : Abhithvp@gmail.com</span>
+        </a>
+
+        <a class="footer-link" href="https://instagram.com/__Vp__.0" target="_blank" rel="noopener">
+          <!-- instagram icon -->
+          <svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm6 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="currentColor"/>
+          </svg>
+          <span class="footer-text">instagram : __Vp__.0</span>
+        </a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
